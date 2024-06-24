@@ -88,14 +88,8 @@ USE_MODELTRANSLATION = False
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/dev/ref/settings/#allowed-hosts
-ALLOWED_HOSTS = [
-	"*",
-        "172.31.12.20",
-	"ec2-18-200-245-127.eu-west-1.compute.amazonaws.com",
-	"0.0.0.0",
-	"localhost", 
-	"127.0.0.1"]
-#ec2-18-200-245-127.eu-west-1.compute.amazonaws.com
+ALLOWED_HOSTS = ["localhost", "127.0.0.1","0.0.0.0"]
+
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
 # although not all choices may be available on all operating systems.
@@ -118,8 +112,7 @@ LANGUAGES = (("en", _("English")),)
 # A boolean that turns on/off debug mode. When set to ``True``, stack traces
 # are displayed for error pages. Should always be set to ``False`` in
 # production. Best set to ``True`` in local_settings.py
-#DEBUG = False
-DEBUG = True
+DEBUG = False
 
 # Whether a user's session cookie expires when the Web browser is closed.
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
@@ -128,7 +121,7 @@ SITE_ID = 1
 
 # If you set this to False, Django will make some optimizations so as not
 # to load the internationalization machinery.
-USE_I18N = True
+USE_I18N = False
 
 AUTHENTICATION_BACKENDS = ("mezzanine.core.auth_backends.MezzanineBackend",)
 
@@ -247,7 +240,7 @@ INSTALLED_APPS = [
     "mezzanine.forms",
     "mezzanine.galleries",
     # "mezzanine.twitter",
-    'mezzanine.accounts',
+    # 'mezzanine.accounts',
 ]
 
 # List of middleware classes to use. Order is important; in the request phase,
@@ -257,7 +250,7 @@ MIDDLEWARE = (
     "mezzanine.core.middleware.UpdateCacheMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     # Uncomment if using internationalisation or localisation
-    'django.middleware.locale.LocaleMiddleware',
+    # 'django.middleware.locale.LocaleMiddleware',
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
