@@ -88,7 +88,9 @@ USE_MODELTRANSLATION = False
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/dev/ref/settings/#allowed-hosts
-ALLOWED_HOSTS = ["localhost", "127.0.0.1","0.0.0.0"]
+ALLOWED_HOSTS = ["localhost", "127.0.0.1","0.0.0.0","0.0.0.0:8080",
+                 "ec2-18-200-245-127.eu-west-1.compute.amazonaws.com",
+                 "ec2-18-200-245-127.eu-west-1.compute.amazonaws.com:8080", ]
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
@@ -139,9 +141,9 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 DATABASES = {
     "default": {
         # Add "postgresql_psycopg2", "mysql", "sqlite3" or "oracle".
-        "ENGINE": "django.db.backends.",
+        "ENGINE": "django.db.backends.sqlite3",
         # DB name or path to database file if using sqlite3.
-        "NAME": "",
+        "NAME": "cloudhome.db",
         # Not used with sqlite3.
         "USER": "",
         # Not used with sqlite3.
@@ -240,7 +242,7 @@ INSTALLED_APPS = [
     "mezzanine.forms",
     "mezzanine.galleries",
     # "mezzanine.twitter",
-    # 'mezzanine.accounts',
+    'mezzanine.accounts',
 ]
 
 # List of middleware classes to use. Order is important; in the request phase,
@@ -250,7 +252,7 @@ MIDDLEWARE = (
     "mezzanine.core.middleware.UpdateCacheMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     # Uncomment if using internationalisation or localisation
-    # 'django.middleware.locale.LocaleMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
@@ -310,6 +312,7 @@ if os.path.exists(f):
 # DYNAMIC SETTINGS #
 ####################
 
+CSRF_TRUSTED_ORIGINS = ['http://ec2-18-200-245-127.eu-west-1.compute.amazonaws.com:8080']
 # set_dynamic_settings() will rewrite globals based on what has been defined so far, in
 # order to provide some better defaults where applicable.
 try:
@@ -318,3 +321,5 @@ except ImportError:
     pass
 else:
     set_dynamic_settings(globals())
+import secrets
+SECRET_KEY = secrets.token_urlsafe(50)
