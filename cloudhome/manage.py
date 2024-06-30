@@ -2,9 +2,18 @@
 import os
 import sys
 
-if __name__ == "__main__":
 
-    from mezzanine.utils.conf import real_project_name
+
+def real_project_name(project_name):
+    """
+    Used to let Mezzanine run from its project template directory, in which
+    case "{{ project_name }}" won't have been replaced by a real project name.
+    """
+    if project_name == "{{ project_name }}":
+        return "project_name"
+    return project_name
+
+if __name__ == "__main__":
 
     settings_module = "%s.settings" % real_project_name("cloudhome")
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", settings_module)
