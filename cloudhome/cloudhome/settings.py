@@ -312,7 +312,8 @@ if os.path.exists(f):
 # DYNAMIC SETTINGS #
 ####################
 
-CSRF_TRUSTED_ORIGINS = ['http://ec2-18-200-245-127.eu-west-1.compute.amazonaws.com:8080']
+CSRF_TRUSTED_ORIGINS = ['http://ec2-18-200-245-127.eu-west-1.compute.amazonaws.com:8080',
+                        'http://ec2-18-200-245-127.eu-west-1.compute.amazonaws.com']
 # set_dynamic_settings() will rewrite globals based on what has been defined so far, in
 # order to provide some better defaults where applicable.
 try:
