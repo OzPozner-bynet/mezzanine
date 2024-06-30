@@ -25,11 +25,11 @@ from django.utils.translation import gettext_lazy as _
 # A three item sequence, each containing a sequence of template tags
 # used to render the admin dashboard.
 #
-# DASHBOARD_TAGS = (
-#     ("blog_tags.quick_blog", "mezzanine_tags.app_list"),
-#     ("comment_tags.recent_comments",),
-#     ("mezzanine_tags.recent_actions",),
-# )
+DASHBOARD_TAGS = (
+     ("blog_tags.quick_blog", "mezzanine_tags.app_list"),
+     ("comment_tags.recent_comments",),
+     ("mezzanine_tags.recent_actions",),
+ )
 
 # A sequence of templates used by the ``page_menu`` template tag. Each
 # item in the sequence is a three item sequence, containing a unique ID
@@ -324,3 +324,26 @@ else:
     set_dynamic_settings(globals())
 import secrets
 SECRET_KEY = secrets.token_urlsafe(50)
+
+####################
+# Custom SETTINGS  #
+####################
+
+CSRF_TRUSTED_ORIGINS = ['http://ec2-18-200-245-127.eu-west-1.compute.amazonaws.com:8080',
+                        'http://ec2-18-200-245-127.eu-west-1.compute.amazonaws.com']
+FORMS_USE_HTML5 = True
+TAG_CLOUD_MIN_COUNT = 1  # Adjust minimum tag count (default: 1)
+TAG_CLOUD_MAX_COUNT = 20  # Adjust maximum number of tags (default: None)
+TAG_CLOUD_SIZES = 5
+
+####################
+# EMAIL SETTINGS, move to settings_local.py   #
+####################
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = os.environ.get('MAIL_HOST_USER', '')
+EMAIL_HOST_PASSWORD = os.environ.get('MAIL_HOST_PASSWORD', '')
+
+# fix in env / activate

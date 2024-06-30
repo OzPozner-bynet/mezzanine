@@ -160,6 +160,14 @@
     {% block left_panel %}
     <div class="panel panel-default tree">{% page_menu "pages/menus/tree.html" %}</div>
     {% endblock %}
+    <div>
+    Cloud
+    {% load mezzanine_tags %}
+    {% with mezzanine=mezzanine.templatetags.mezzanine_tags cache_timeout=300 %}
+      {{ mezzanine.show_tagcloud }}
+    {% endwith %}
+    </div>
+    
 </div>
 
 <div class="col-md-7 middle">
