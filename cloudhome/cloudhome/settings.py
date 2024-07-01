@@ -109,7 +109,7 @@ USE_TZ = True
 LANGUAGE_CODE = "en"
 
 # Supported languages
-LANGUAGES = (("en", _("English")),)
+LANGUAGES = (("en", _("English")),("he", _("Hebrew")))
 
 # A boolean that turns on/off debug mode. When set to ``True``, stack traces
 # are displayed for error pages. Should always be set to ``False`` in
@@ -224,6 +224,7 @@ TEMPLATES = [
 
 INSTALLED_APPS = [
     "theme",
+    "custom_blog",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
