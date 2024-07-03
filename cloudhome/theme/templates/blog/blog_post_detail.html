@@ -63,17 +63,24 @@
 <h6> You are authentiated </h6>
   {% for group in request.user.groups.all %}
     {% if group.name == "Bynet" %}
-     You belongs to Bynet Group here are the links for the sales Kits:
-     {% if post.saleskit_urls.exists %}
-    <h3>Sales Kits</h3>
-    <ul>
-        {% for url in post.saleskit_urls.all %}
-            <li><a href="{{ url.url }}">{{ url.url }}</a></li>
-        {% endfor %}
-    </ul>
-{% endif %}
-
-
+         You belongs to Bynet Group 
+        {% if blog_post %}
+           {% if blog_post.saleskit_urls %}
+            <h5>Sales Kits</h5>
+            {% if ',' in blog_post.saleskit_urls %}
+                {% for url in blog_post.saleskit_urls.split %}  
+                <p><a href="{{ url }}">{{ url }}</a></p> 
+                {% endfor %}
+            {% else %}
+              <p><a href="{{ blog_post.saleskit_urls }}">{{ blog_post.saleskit_urls }}</a></p>
+            {% endif %}
+          {% else %}
+            <h6>No sales kit URL for this post</h6>
+          {% endif %}
+        {% else %}
+        No post  
+        {% endif %}
+        
     {% endif %}
   {% endfor %}
 
