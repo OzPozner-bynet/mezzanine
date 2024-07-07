@@ -23,11 +23,6 @@
 {% endblock %}
 
 {% block main %}
-
-
-
-
-
 {% block blog_post_detail_featured_image %}
 {% if settings.BLOG_USE_FEATURED_IMAGE and blog_post.featured_image %}
 <p><img class="img-responsive" src="{{ MEDIA_URL }}{% thumbnail blog_post.featured_image 600 0 %}"></p>
@@ -58,52 +53,28 @@
 {% endif %}
 {% endblock %}
 
-
 {% if request.user.is_authenticated %}
-
-<h6> You are authentiated </h6>
+<!--
+<h6> hi, {{request.user}} you are authenticated</h6>
+-->
   {% for group in request.user.groups.all %}
     {% if group.name == "Bynet" %}
-         You belongs to Bynet Group 
-
-        {% if blog_post %}
-      </br>
-      Meta: 
-       {{ blog_post.serialized_data }}
-       {{ post.blog_post.serialized_data  }}
-       {{ customblog_post.serialized_data }}
-       <h2>{{ post.title }}</h2>
-
-       <ul>
-          {% for key, value in serialized_post.items %}
-        < li><strong>{{ key }}:</strong> {{ value }}</li>
-          {% endfor %}
-       </ul>
-
-    </br>
-      End Meta
-      start post
-      <p>
-        <strong>Sales Kit URLs:</strong>
-        <a href="{{ post.saleskit_urls }}">{{ post.saleskit_urls }}</a>
-    </p>
-      end post
-           {% if blog_post.saleskit_urls %}
-            <h5>Sales Kits</h5>
-            {% if ',' in blog_post.saleskit_urls %}
-                {% for url in blog_post.saleskit_urls.split %}  
-                <p><a href="{{ url }}">{{ url }}</a></p> 
-                {% endfor %}
-            {% else %}
-              <p><a href="{{ blog_post.saleskit_urls }}">{{ blog_post.saleskit_urls }}</a></p>
-            {% endif %}
-          {% else %}
-            <h6>No sales kit URL for this post</h6>
-          {% endif %}
+      <!--   You belong to "Bynet Group" show Extra URLS -->
+         {% if blog_post.saleskit_urls %}
+           <p>{% if "||" in blog_post.saleskit_urls %}
+                  <h5><strong>Sales Kits URLs:</strong></h5>
+                  <ul>
+                  {% for urls in blog_post.saleskit_urls|split_by_double_pipe %}
+                   <li><a href="{{ urls|url_by_pipe}}">{{ urls|title_by_pipe }}</a></li>
+                  {% endfor %}
+                  </ul>
+              {% else %}
+                <h5><strong>Sales Kits URL:</strong></h5>
+                 <p> <a href="{{ blog_post.saleskit_urls|url_by_pipe}}">{{ blog_post.saleskit_urls|title_by_pipe }}</a>
+                 {% endif %}</p>
         {% else %}
-        No post  
+            <h6>No sales kit URL for this post :(</h6>
         {% endif %}
-        
     {% endif %}
   {% endfor %}
 
@@ -134,15 +105,6 @@
         {% endif %}
     {% endif %}
 </p>
-{% endblock %}
-
-
-{% block blog_post_detail_rating %}
-<div class="panel panel-default rating">
-    <div class="panel-body">
-    {% rating_for blog_post %}
-    </div>
-</div>
 {% endblock %}
 
 {% block blog_post_detail_sharebuttons %}

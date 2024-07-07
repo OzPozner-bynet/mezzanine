@@ -6,7 +6,7 @@ from django.views.i18n import set_language
 
 from mezzanine.conf import settings
 from mezzanine.pages.views import page
-
+from custom_blog.views import custom_blog_post_detail
 # Uncomment to use blog as home page. See also urlpatterns section below.
 # from mezzanine.blog import views as blog_views
 
@@ -51,6 +51,15 @@ urlpatterns += [
     # should be used if you want to customize the homepage's template.
     # NOTE: Don't forget to import the view function too!
     path("", page, {"slug": "/"}, name="home"),
+
+    #oz start
+  
+ 
+    path('blog/<int:year>/<slug:slug>/',custom_blog_post_detail, name='blog_post_detail'),
+
+    #oz end
+
+
     # HOMEPAGE FOR A BLOG-ONLY SITE
     # -----------------------------
     # This pattern points the homepage to the blog post listing page,

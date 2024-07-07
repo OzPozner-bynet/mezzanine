@@ -103,7 +103,7 @@ USE_MODELTRANSLATION = False
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/dev/ref/settings/#allowed-hosts
-ALLOWED_HOSTS = ["localhost", "127.0.0.1","0.0.0.0","0.0.0.0:8080",
+ALLOWED_HOSTS = ["localhost", "127.0.0.1","0.0.0.0:80","0.0.0.0:8080",
                  "ec2-18-200-245-127.eu-west-1.compute.amazonaws.com",
                  "ec2-18-200-245-127.eu-west-1.compute.amazonaws.com:8080", ]
 
@@ -124,12 +124,12 @@ USE_TZ = True
 LANGUAGE_CODE = "en"
 
 # Supported languages
-LANGUAGES = (("en", _("English")),("he", _("Hebrew")))
+LANGUAGES = [("en", _("English")),("he", _("Hebrew"))]
 
 # A boolean that turns on/off debug mode. When set to ``True``, stack traces
 # are displayed for error pages. Should always be set to ``False`` in
 # production. Best set to ``True`` in local_settings.py
-DEBUG = True
+DEBUG = False
 
 # Whether a user's session cookie expires when the Web browser is closed.
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
@@ -138,7 +138,7 @@ SITE_ID = 1
 
 # If you set this to False, Django will make some optimizations so as not
 # to load the internationalization machinery.
-USE_I18N = False
+USE_I18N = True
 
 AUTHENTICATION_BACKENDS = ("mezzanine.core.auth_backends.MezzanineBackend",)
 
@@ -238,14 +238,16 @@ TEMPLATES = [
 ################
 
 INSTALLED_APPS = [
+    
+    "django.contrib.sites",
     "theme",
     "custom_blog",
-    "django.contrib.admin",
+    
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.redirects",
     "django.contrib.sessions",
-    "django.contrib.sites",
+    
     "django.contrib.sitemaps",
     "django.contrib.messages",
     "django.contrib.staticfiles",
@@ -259,6 +261,10 @@ INSTALLED_APPS = [
     "mezzanine.galleries",
     # "mezzanine.twitter",
     'mezzanine.accounts',
+ #  'modeltranslation',
+    "django.contrib.admin",
+   
+    
 ]
 
 # List of middleware classes to use. Order is important; in the request phase,
@@ -362,4 +368,77 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = os.environ.get('MAIL_HOST_USER', '')
 EMAIL_HOST_PASSWORD = os.environ.get('MAIL_HOST_PASSWORD', '')
 
-# fix in env / activate
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
+    }
+}
+"""
+LOGGING = {
+    'version': 1,
+    'formatters': {
+        'verbose': {
+            'format': '{levelname} {asctime} {module} {process:d} {thread:d} {message}',
+            'style': '{',
+        },
+    },
+    'handlers': {
+        'console': {
+            'level': 'DEBUG',  # Set to 'DEBUG' for maximum verbosity
+            'class': 'logging.StreamHandler',
+            'formatter': 'verbose',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console'],
+            'level': 'DEBUG',  # Set to 'DEBUG' for maximum verbosity
+            'propagate': False,
+        },
+    },
+}
+"""
+
+LOGGING = {
+    'version': 1,
+    'formatters': {
+        'verbose': {
+            'format': '{levelname} {asctime} {module} {process:d} {thread:d} {message}',
+            'style': '{',
+        },
+    },
+    'handlers': {
+         'console': {
+            'level': 'INFO',  # Set to 'DEBUG' for maximum verbosity
+            'class': 'logging.StreamHandler',
+            'formatter': 'verbose',
+        },
+        'file': {
+            'level': 'DEBUG',  # Adjust log level as needed (e.g., 'INFO', 'WARNING')
+            'class': 'logging.FileHandler',
+            'filename': 'my_app.log',  # Replace with your desired filename and path
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['file','console'],  # Use the 'file' handler defined above
+            'level': 'DEBUG',  # Adjust log level as needed (e.g., 'INFO', 'WARNING')
+            'propagate': False,  # Optional: Prevent propogation to parent loggers
+        },
+    },
+}
+TRANSLATABLE_MODEL_MODULES = []
+MODELTRANSLATION_DEFAULT_LANGUAGE = 'he'
+MODELTRANSLATION_FALLBACK_LANGUAGES = ('en', 'he')
+MODELTRANSLATION_DEBUG = False
+# fix in env / activat
+def is_bidi_language(request):
+    language_code = translation.get_language()
+    # Replace with your logic to identify right-to-left languages
+    # (e.g., check language code against a list or use a library)
+    return {'is_bidi': language_code in ['en', 'he']}  # Placeholder for languages
+
+def my_context_processor(request):
+    context = {}
+    context.update(is_bidi_language(request))
+    return context

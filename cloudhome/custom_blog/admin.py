@@ -16,7 +16,7 @@ class CustomBlogPostAdminForm(forms.ModelForm):
 class CustomBlogPostAdmin(BlogPostAdmin):
     fieldsets = list(BlogPostAdmin.fieldsets) + [
         ("Extra", {
-            "fields": ["saleskit_urls"],
+            "fields": ["saleskit_urls","direction"]
         }),
     ]
 
