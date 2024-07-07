@@ -1,3 +1,4 @@
+
 {% extends "blog/blog_post_list.html" %}
 {% load mezzanine_tags comment_tags keyword_tags rating_tags i18n disqus_tags %}
 
@@ -64,7 +65,29 @@
   {% for group in request.user.groups.all %}
     {% if group.name == "Bynet" %}
          You belongs to Bynet Group 
+
         {% if blog_post %}
+      </br>
+      Meta: 
+       {{ blog_post.serialized_data }}
+       {{ post.blog_post.serialized_data  }}
+       {{ customblog_post.serialized_data }}
+       <h2>{{ post.title }}</h2>
+
+       <ul>
+          {% for key, value in serialized_post.items %}
+        < li><strong>{{ key }}:</strong> {{ value }}</li>
+          {% endfor %}
+       </ul>
+
+    </br>
+      End Meta
+      start post
+      <p>
+        <strong>Sales Kit URLs:</strong>
+        <a href="{{ post.saleskit_urls }}">{{ post.saleskit_urls }}</a>
+    </p>
+      end post
            {% if blog_post.saleskit_urls %}
             <h5>Sales Kits</h5>
             {% if ',' in blog_post.saleskit_urls %}

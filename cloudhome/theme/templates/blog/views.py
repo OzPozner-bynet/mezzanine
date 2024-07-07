@@ -1,12 +1,14 @@
 
 from django.shortcuts import render
-from .models import CustomBlogPost
+from django.db import models
+from models import CustomBlogPost
 
 def custom_blog_detail(request, slug):
     post = CustomBlogPost.objects.get(slug=slug)  # Fetch the post
     context = {'post': post}  # Add the post object to context
-    print(context)  
+    print(context) 
     return render(request, 'blog_POST_detail.html', context)
+
 """
 from django.shortcuts import render
 from .models import CustomBlogPost

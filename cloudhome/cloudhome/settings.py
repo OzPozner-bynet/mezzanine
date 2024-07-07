@@ -73,6 +73,21 @@ DASHBOARD_TAGS = (
 #     ),
 # )
 
+#     # Example of adding a field to *all* of Mezzanine's content types:
+#     (
+#         "mezzanine.pages.models.Page.another_field",
+#         "IntegerField", # 'django.db.models.' is implied if path is omitted.
+#         (_("Another name"),),
+#         {"blank": True, "default": 1},
+#     ),
+#)
+
+
+
+
+
+
+
 # Setting to turn on featured images for blog posts. Defaults to False.
 #
 # BLOG_USE_FEATURED_IMAGE = True
@@ -114,7 +129,7 @@ LANGUAGES = (("en", _("English")),("he", _("Hebrew")))
 # A boolean that turns on/off debug mode. When set to ``True``, stack traces
 # are displayed for error pages. Should always be set to ``False`` in
 # production. Best set to ``True`` in local_settings.py
-DEBUG = False
+DEBUG = True
 
 # Whether a user's session cookie expires when the Web browser is closed.
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
