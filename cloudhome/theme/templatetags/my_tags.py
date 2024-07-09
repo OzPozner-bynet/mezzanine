@@ -6,3 +6,4 @@ register = template.Library()
 @register.simple_tag
 def is_staff(user):
     return user.is_staff
+
