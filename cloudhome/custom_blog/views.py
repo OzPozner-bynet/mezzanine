@@ -106,8 +106,8 @@ def custom_blog_post_detail(
         "blog_post": blog_post,
         "editable_obj": blog_post,
         "related_posts": related_posts,
-        'customblogpost': blog_post.first(),
-        'saleskit_urls': blog_post.first().customblogpost.saleskit_urls
+       # 'customblogpost': blog_post.first(),
+       # 'saleskit_urls': blog_post.first().customblogpost.saleskit_urls
     }
     logger.info(f"****** inside cusom blog view.py ************\n {context}") 
     context.update(extra_context or {})
