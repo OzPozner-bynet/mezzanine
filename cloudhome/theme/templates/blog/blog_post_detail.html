@@ -54,7 +54,9 @@
 {% endblock %}
 
 {% if request.user.is_authenticated %}
+{% load custom_blog_tags %}
 <!--
+{% trans "Authenticate" %}
 <h6> hi, {{request.user}} you are authenticated</h6>
 -->
   {% for group in request.user.groups.all %}
