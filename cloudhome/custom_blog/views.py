@@ -29,13 +29,14 @@ def custom_blog_post_detail(
     # blogpost = BlogPost.objects.filter(slug=slug).prefetch_related('customblogpost')
     import logging
     logger = logging.getLogger()
-    logger.info(f"****** inside cusom blog view.py ************\n {context}") 
+    
     context = {
         "blog_post": blog_post,
         "editable_obj": blog_post,
         "related_posts": related_posts,
     #    'customblogpost': blogpost.first(), 'saleskit_urls': blogpost.first().customblogpost.saleskit_urls
     }
+    logger.info(f"****** inside cusom blog view.py ************\n {context}") 
     context.update(extra_context or {})
     templates = ["blog/blog_post_detail_%s.html" % str(slug), template]
     return TemplateResponse(request, templates, context)
