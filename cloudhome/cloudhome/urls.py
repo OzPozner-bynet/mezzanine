@@ -55,7 +55,7 @@ urlpatterns += [
     # should be used if you want to customize the homepage's template.
     # NOTE: Don't forget to import the view function too!
     path("", page, {"slug": "/"}, name="home"),
-
+    #path("he/", include("mezzanine.urls") ),
     #oz start
   
  

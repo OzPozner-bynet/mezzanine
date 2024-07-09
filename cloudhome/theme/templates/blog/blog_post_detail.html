@@ -120,7 +120,7 @@
 {% endblock %}
 
 {% else %}
-    <p>You must be logged in to share / rate this blog.</p>
+    <p>You must be <a href="{{ "accounts/login/?next=/" }}">{% trans "Logged in" %}</a> to see sales kits / share / rate this blog.</p>
 {% endif %}
 
 
