@@ -36,7 +36,7 @@
 
 	{% for group in request.user.groups.all %}
 	{% if group.name == "Training" %}
-	<!--   You belong to "Bynet Training Group" show Extra URLS -->
+	You belong to "Bynet Training Group" showing Extra URLS 
 	<a href="{{ "/%D7%94%D7%A1%D7%9E%D7%9B%D7%95%D7%AA/" }}">{% trans "Training" %}</a>   
 	{% endif %}
 	{% endfor %}
