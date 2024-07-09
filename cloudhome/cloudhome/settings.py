@@ -335,7 +335,7 @@ if os.path.exists(f):
 ####################
 
 CSRF_TRUSTED_ORIGINS = ['http://ec2-18-200-245-127.eu-west-1.compute.amazonaws.com:8080',
-                        'http://ec2-18-200-245-127.eu-west-1.compute.amazonaws.com']
+                        'http://ec2-18-200-245-127.eu-west-1.compute.amazonaws.com',"0.0.0.0","127.0.01"]
 # set_dynamic_settings() will rewrite globals based on what has been defined so far, in
 # order to provide some better defaults where applicable.
 try:
@@ -373,32 +373,6 @@ CACHES = {
         'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
     }
 }
-"""
-LOGGING = {
-    'version': 1,
-    'formatters': {
-        'verbose': {
-            'format': '{levelname} {asctime} {module} {process:d} {thread:d} {message}',
-            'style': '{',
-        },
-    },
-    'handlers': {
-        'console': {
-            'level': 'DEBUG',  # Set to 'DEBUG' for maximum verbosity
-            'class': 'logging.StreamHandler',
-            'formatter': 'verbose',
-        },
-    },
-    'loggers': {
-        'django': {
-            'handlers': ['console'],
-            'level': 'DEBUG',  # Set to 'DEBUG' for maximum verbosity
-            'propagate': False,
-        },
-    },
-}
-"""
-
 LOGGING = {
     'version': 1,
     'formatters': {
@@ -414,7 +388,7 @@ LOGGING = {
             'formatter': 'verbose',
         },
         'file': {
-            'level': 'DEBUG',  # Adjust log level as needed (e.g., 'INFO', 'WARNING')
+            'level': 'INFO',  # Adjust log level as needed (e.g., 'INFO', 'WARNING')
             'class': 'logging.FileHandler',
             'filename': 'my_app.log',  # Replace with your desired filename and path
         },
@@ -422,7 +396,7 @@ LOGGING = {
     'loggers': {
         'django': {
             'handlers': ['file','console'],  # Use the 'file' handler defined above
-            'level': 'DEBUG',  # Adjust log level as needed (e.g., 'INFO', 'WARNING')
+            'level': 'INFO',  # Adjust log level as needed (e.g., 'INFO', 'WARNING', 'DEBUG')
             'propagate': False,  # Optional: Prevent propogation to parent loggers
         },
     },
@@ -433,7 +407,7 @@ MODELTRANSLATION_FALLBACK_LANGUAGES = ('en', 'he')
 MODELTRANSLATION_DEBUG = False
 # fix in env / activat
 def is_bidi_language(request):
-    language_code = translation.get_language()
+    language_code = translation.get_language() 
     # Replace with your logic to identify right-to-left languages
     # (e.g., check language code against a list or use a library)
     return {'is_bidi': language_code in ['en', 'he']}  # Placeholder for languages

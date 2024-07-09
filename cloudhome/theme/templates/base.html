@@ -187,6 +187,21 @@
 </div>
 </div>
 
+{% if posts %}
+<h2>Filtered Posts for "{{ keywords }}"</h2>
+<ul>
+  {% for post in posts %}
+  <li>
+    <a href="{% url 'post_detail' post.slug %}">{{ post.title }}</a>
+  </li>
+  {% endfor %}
+</ul>
+{% else %}
+<p>No posts found matching "{{ keywords }}".</p>
+{% endif %}
+
+
+
 <footer>
 </footer>
 

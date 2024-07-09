@@ -42,6 +42,12 @@ def custom_blog_post_detail(
     return TemplateResponse(request, templates, context)
 
 
+def my_view(request):
+  keywords = request.GET.get('keywords', '')  # Get keywords from the URL parameter
+  posts = CustomBlogPost.objects.filter(content__icontains=keywords)  # Filter posts based on keywords in content
+  context = {'posts': posts, 'keywords': keywords}  # Pass data to the template
+  return render(request, 'my_template.html', context)
+
 
 
 """

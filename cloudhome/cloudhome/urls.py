@@ -4,6 +4,8 @@ from django.urls import include, path
 from django.views.generic import TemplateView
 from django.views.i18n import set_language
 
+from django import views
+
 from mezzanine.conf import settings
 from mezzanine.pages.views import page
 from custom_blog.views import custom_blog_post_detail
@@ -26,6 +28,8 @@ if settings.USE_MODELTRANSLATION:
     urlpatterns += [
         path("i18n", set_language, name="set_language"),
     ]
+
+
 
 urlpatterns += [
     # We don't want to presume how your homepage works, so here are a
@@ -56,6 +60,7 @@ urlpatterns += [
   
  
     path('blog/<slug:slug>/',custom_blog_post_detail, name='blog_post_detail'),
+    #path('my-page/<str:keywords>/', custom_blog.views.my_view, name='my_page_with_keywords'),  # Define a URL pattern with a keyword parameter
 
     #oz end
 

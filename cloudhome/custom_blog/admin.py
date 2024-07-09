@@ -1,5 +1,6 @@
 from django.contrib import admin
 from mezzanine.blog.admin import BlogPostAdmin
+from mezzanine.blog.models import BlogPost 
 from .models import CustomBlogPost
 from django import forms
 from ckeditor_uploader.widgets import CKEditorUploadingWidget  # Import CKEditor widget
@@ -16,10 +17,10 @@ class CustomBlogPostAdminForm(forms.ModelForm):
 class CustomBlogPostAdmin(BlogPostAdmin):
     fieldsets = list(BlogPostAdmin.fieldsets) + [
         ("Extra", {
-            "fields": ["saleskit_urls","direction"]
+            "fields": ["saleskit_urls"]
         }),
     ]
-
+#admin.site.unregister(BlogPost)
 admin.site.register(CustomBlogPost, CustomBlogPostAdmin)
 
  
