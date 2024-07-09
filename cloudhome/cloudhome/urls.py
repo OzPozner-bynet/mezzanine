@@ -55,7 +55,7 @@ urlpatterns += [
     #oz start
   
  
-    #path('blog/<int:year>/<slug:slug>/',custom_blog_post_detail, name='blog_post_detail'),
+    path('blog/<slug:slug>/',custom_blog_post_detail, name='blog_post_detail'),
 
     #oz end
 
