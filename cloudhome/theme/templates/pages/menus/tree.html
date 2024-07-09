@@ -7,7 +7,7 @@
     {% if page.title == "הסמכות"%}
       {# next #}
     {% else %}
-      {{ page.title }}
+      {# page.title #}
 
       {% if not has_home and page.is_primary and forloop.first %}
       <li{% if on_home %} class="active"{% endif %} id="tree-menu-home">

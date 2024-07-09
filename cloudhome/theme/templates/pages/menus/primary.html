@@ -8,7 +8,7 @@
         <a class="nav-link" href="{% url "home" %}">{% trans "Home" %}</a>
     </li>
     {% endif %}
-    {% if page.in_menu %}
+    {% if page.in_menu and not page.title == "הסמכות" %}
     <li id="primary-menu-{{ page.html_id }}"
         class="{% if page.is_current_or_ascendant %}active{% endif %}{% if forloop.last %} last{% endif %} nav-item">
         <a class="nav-link" href="{{ page.get_absolute_url }}">{{ page.title }}</a>
