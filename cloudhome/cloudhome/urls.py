@@ -8,7 +8,7 @@ from django.views.i18n import set_language
 #from django import views
 
 from mezzanine.pages.views import page
-from custom_blog.views import custom_blog_post_detail
+from custom_blog.views import custom_blog_post_detail, custom_blog_post_list
 from mezzanine.blog.views import blog_post_detail 
 # Uncomment to use blog as home page. See also urlpatterns section below.
 # from mezzanine.blog import views as blog_views
@@ -66,7 +66,7 @@ urlpatterns += [
  
     path('blog/<slug:slug>/',custom_blog_post_detail , name='blog_post_detail'),
     path("he/blog/<slug:slug>" + _slash, custom_blog_post_detail , name="blog_post_detail"),
-    path("<slug>" + _slash, custom_blog_post_detail, name="blog_post_detail"),    
+    path("blog/", custom_blog_post_list, name="blog_post_list"),
     #oz end
 
 
