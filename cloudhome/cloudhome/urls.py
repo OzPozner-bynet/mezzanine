@@ -1,18 +1,22 @@
 from django.conf.urls.i18n import i18n_patterns
 from django.contrib import admin
-from django.urls import include, path
+from django.urls import include, path, re_path
+from mezzanine.conf import settings
 from django.views.generic import TemplateView
 from django.views.i18n import set_language
 
-from django import views
+#from django import views
 
-from mezzanine.conf import settings
 from mezzanine.pages.views import page
 from custom_blog.views import custom_blog_post_detail
+from mezzanine.blog.views import blog_post_detail 
 # Uncomment to use blog as home page. See also urlpatterns section below.
 # from mezzanine.blog import views as blog_views
 
 admin.autodiscover()
+
+# Trailing slahes for urlpatterns based on setup.
+_slash = "/" if settings.APPEND_SLASH else ""
 
 # Add the urlpatterns for any custom Django applications here.
 # You can also change the ``home`` view to add your own functionality
@@ -56,12 +60,13 @@ urlpatterns += [
     # NOTE: Don't forget to import the view function too!
     path("", page, {"slug": "/"}, name="home"),
     #path("he/", include("mezzanine.urls") ),
+    
     #oz start
   
  
-    path('blog/<slug:slug>/',custom_blog_post_detail, name='blog_post_detail'),
-    #path('my-page/<str:keywords>/', custom_blog.views.my_view, name='my_page_with_keywords'),  # Define a URL pattern with a keyword parameter
-
+    path('blog/<slug:slug>/',custom_blog_post_detail , name='blog_post_detail'),
+    path("he/blog/<slug:slug>" + _slash, custom_blog_post_detail , name="blog_post_detail"),
+    path("<slug>" + _slash, custom_blog_post_detail, name="blog_post_detail"),    
     #oz end
 
 

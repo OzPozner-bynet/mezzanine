@@ -27,14 +27,15 @@ def custom_blog_post_detail(
     blog_post = get_object_or_404(blog_posts, slug=slug)
     related_posts = blog_post.related_posts.published(for_user=request.user)
     # blogpost = BlogPost.objects.filter(slug=slug).prefetch_related('customblogpost')
-    import logging
+    
     logger = logging.getLogger()
     
     context = {
         "blog_post": blog_post,
         "editable_obj": blog_post,
         "related_posts": related_posts,
-    #    'customblogpost': blogpost.first(), 'saleskit_urls': blogpost.first().customblogpost.saleskit_urls
+        'customblogpost': blog_post.first(),
+        'saleskit_urls': blog_post.first().customblogpost.saleskit_urls
     }
     logger.info(f"****** inside cusom blog view.py ************\n {context}") 
     context.update(extra_context or {})
