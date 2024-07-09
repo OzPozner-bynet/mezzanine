@@ -29,21 +29,22 @@
 	{% if group.name == "Training" %}
 	You belong to "Bynet Training Group" showing Extra URLS 
 	<li><a href="{{ '/%D7%94%D7%A1%D7%9E%D7%9B%D7%95%D7%AA/' }}">{% trans "Training" %}</a></li>   
-  {%elif group.name == "Admin" %}
+  {%elif group.name == "Admins" %}
   <li><a href="{{ '/admin/' }}">Admin</a></li>  
   {%elif group.name == "Bynet" %}
 	{%else%}
   <!-- No action for {{ group.name }} -->
   {% endif %}
 	{% endfor %}
-  <li><a href="{{ "/accounts/logout/" }}">{% trans "Logout" %}</a></li>
+  <!-- <li><a href="{{ "/accounts/logout/" }}">{% trans "Logout" %}</a></li> -->
 {% else %}	
-<li><a href="{{ "/accounts/login/?next=/" }}">{% trans "Login" %}</a></li>
+<!-- <li><a href="{{ "/accounts/login/?next=/" }}">{% trans "Login" %}</a></li> -->
 {% include "includes/user_panel.html" %}
 {% endif %}
 
 
 </ul>
+{% search_form  %}
 {% endif %}
 
 {% endspaceless %}
