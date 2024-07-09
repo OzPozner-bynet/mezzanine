@@ -37,10 +37,6 @@
   No action for {{ group.name }}
   {% endif %}
 	{% endfor %}
-  {% if is_staff(request.user) %}
-    <p>You are Staff</p>
-    <li><a href="{{ '/admin/' }}">{% trans "Admin" %}</a></li>  
-  {% endif %}
    <li><a href="{{ "/accounts/logout/" }}">{% trans "Logout" %}</a></li> 
 {% else %}	
  <li><a href="{{ "/accounts/login/?next=/" }}">{% trans "Login" %}</a></li> 
