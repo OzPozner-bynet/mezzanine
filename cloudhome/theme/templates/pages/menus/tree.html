@@ -23,7 +23,7 @@
   {% endfor %}
 
 
-  {% if request.user.is_authenticated %}
+  {% if request.user.is_authenticated and page.is_primary %}
 </hr>  
 	{% for group in request.user.groups.all %}
 	{% if group.name == "Training" %}
