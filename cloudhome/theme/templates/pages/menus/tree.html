@@ -26,17 +26,21 @@
 
 
   {% if request.user.is_authenticated and not page.has_children_in_menu %}
-</hr>  
+
 	{% for group in request.user.groups.all %}
 	{% if group.name == "Training" %}
 		<li><a href="{{ '/%D7%94%D7%A1%D7%9E%D7%9B%D7%95%D7%AA/' }}">{% trans "Training" %}</a></li>   
-  {%elif group.name == "Admins" %}
-  <li><a href="{{ '/admin/' }}">Admin</a></li>  
+  {#elif group.name == "Admin" #}
+  {#  <li><a href="{{ '/admin/' }}">{% trans "Training" %}</a></li> #}  
   {%elif group.name == "Bynet" %}
 	{%else%}
   No action for {{ group.name }}
   {% endif %}
 	{% endfor %}
+  {% if is_staff(request.user) %}
+    <p>You are Staff</p>
+    <li><a href="{{ '/admin/' }}">{% trans "Admin" %}</a></li>  
+  {% endif %}
    <li><a href="{{ "/accounts/logout/" }}">{% trans "Logout" %}</a></li> 
 {% else %}	
  <li><a href="{{ "/accounts/login/?next=/" }}">{% trans "Login" %}</a></li> 
