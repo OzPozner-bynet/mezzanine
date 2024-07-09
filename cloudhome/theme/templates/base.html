@@ -105,10 +105,12 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             {% page_menu "pages/menus/primary.html" %}
        
-            {% block navbar_search_form %}{% search_form  %}{% include "accounts/includes/user_panel_nav.html" %}{% endblock %}
+            {% block navbar_search_form %}{% search_form  %}{% include "accounts/includes/user_panel_nav.html" %}
+            {% include "includes/language_selector.html" %}
+            {% endblock %}
         <!-- class="col-md-3 right" -->
             {% nevercache %}
-            {% include "includes/language_selector.html" %}
+            
             
             <!-- {% include "includes/user_panel.html" %} -->
             {% endnevercache %}
@@ -197,7 +199,7 @@
   {% endfor %}
 </ul>
 {% else %}
-<p>No posts found matching "{{ keywords }}".</p>
+<!--<p>No posts found matching "{{ keywords }}".</p>-->
 {% endif %}
 
 

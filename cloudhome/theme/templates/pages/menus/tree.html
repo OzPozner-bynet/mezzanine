@@ -36,6 +36,7 @@
   <!-- No action for {{ group.name }} -->
   {% endif %}
 	{% endfor %}
+  <li><a href="{{ "/accounts/logout/" }}">{% trans "Logout" %}</a></li>
 {% else %}	
 <li><a href="{{ "/accounts/login/?next=/" }}">{% trans "Login" %}</a></li>
 {% include "includes/user_panel.html" %}
