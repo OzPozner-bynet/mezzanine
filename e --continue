@@ -1,0 +1,126 @@
+[33mcommit 3ed7061c354c6d47c8845eb9df319d97cce68446[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m
+Author: Oz Pozner <OzP@bynet.co.il>
+Date:   Tue Jul 9 08:51:00 2024 +0300
+
+    url sales kit
+
+[33mcommit 44aa43db5a2a3db0a0eb68d038d4c80792d28d38[m
+Author: Oz Pozner <OzP@bynet.co.il>
+Date:   Tue Jul 9 08:49:35 2024 +0300
+
+    url sales kit
+
+[33mcommit 10ce5a97d20654bb676f058e40941a9fa28aaa81[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Oz Pozner <OzP@bynet.co.il>
+Date:   Tue Jul 9 07:47:36 2024 +0300
+
+    updating readem and template tags
+
+[33mcommit 93e220c49c42265024bf8437ade0c7aacbb71939[m
+Author: Oz Pozner <ozp@bynet.co.il>
+Date:   Sun Jul 7 21:48:29 2024 +0300
+
+    fixed url chnage to RTL
+
+[33mcommit 0b86b9ed14b8e6b87e058e497dadca52c7e4ea25[m
+Author: Oz Pozner <ozp@bynet.co.il>
+Date:   Sun Jul 7 11:37:20 2024 +0300
+
+    sales kit url
+
+[33mcommit 042fb6d661a0728954ebe390fdd9e794600515c7[m
+Author: Oz Pozner <OzP@bynet.co.il>
+Date:   Wed Jul 3 11:48:35 2024 +0300
+
+    utl sales kit
+
+[33mcommit b2208e14351981d1a7e4b586d5cf114534598397[m
+Author: Oz Pozner <OzP@bynet.co.il>
+Date:   Mon Jul 1 13:01:22 2024 +0300
+
+    utl sales kit
+
+[33mcommit 079c74e43d898538db92390df0e5f944f60bd207[m
+Author: Oz Pozner <OzP@bynet.co.il>
+Date:   Mon Jul 1 02:33:49 2024 +0300
+
+    tag cloud attemp
+
+[33mcommit 30dec5bd40b4f3a18a3f1a4fbe614f6a50b36c60[m
+Author: Oz Pozner <OzP@bynet.co.il>
+Date:   Sun Jun 30 20:59:30 2024 +0300
+
+    home managed via admin
+
+[33mcommit e7b96480f2b9ec3a6cdd2eeb570c1e48b04a4e38[m
+Author: Oz Pozner <OzP@bynet.co.il>
+Date:   Sun Jun 30 19:46:56 2024 +0300
+
+    updated CSRF_TRUSTED_ORIGINS
+
+[33mcommit 5349ae1f6524088c9812f6670ec28174e6ea2074[m
+Author: Oz Pozner <OzP@bynet.co.il>
+Date:   Sun Jun 30 19:43:05 2024 +0300
+
+    update nav bar
+
+[33mcommit ea0b015ce68070b38eb3305b0e04ee174b6b9da6[m
+Author: Oz Pozner <OzP@bynet.co.il>
+Date:   Sun Jun 30 16:47:41 2024 +0300
+
+    sync
+
+[33mcommit 0e6d479cff92367ecca7df1622aaaa139c9ff8c1[m
+Author: Oz Pozner <OzP@bynet.co.il>
+Date:   Sun Jun 30 16:31:17 2024 +0300
+
+    empty
+
+[33mcommit c6ce7df7488550426411a2ab0aa917a33f24b49a[m
+Author: Oz Pozner <OzP@bynet.co.il>
+Date:   Mon Jun 24 11:44:32 2024 +0300
+
+    removed footer
+
+[33mcommit 14d6030b17073fcd19635ec0746b1f57cb9719ff[m
+Author: Oz Pozner <OzP@bynet.co.il>
+Date:   Mon Jun 24 11:23:45 2024 +0300
+
+    bs4
+
+[33mcommit a80bc3aebd88a529477278dc2125e0349f3cefe6[m
+Author: Oz Pozner <OzP@bynet.co.il>
+Date:   Mon Jun 24 11:19:57 2024 +0300
+
+    added
+     bs
+
+[33mcommit 2cf462585532fd0c7fdd40c61b8ab6fbac9e3236[m
+Author: Oz Pozner <OzP@bynet.co.il>
+Date:   Mon Jun 24 09:50:53 2024 +0300
+
+    adding verion
+
+[33mcommit 1a3e3eb33ea33ff942521a0d0e294991e50a7f75[m
+Author: Oz Pozner <OzP@bynet.co.il>
+Date:   Mon Jun 24 09:46:45 2024 +0300
+
+    bug fix
+
+[33mcommit 8f99db758f5111937d00fba6323070a1167ebad3[m
+Author: Oz Pozner <OzP@bynet.co.il>
+Date:   Mon Jun 24 08:39:00 2024 +0300
+
+    test
+
+[33mcommit 7b72da12b3844af2d3fa044fa87066a0f3b9d5c2[m
+Author: Oz Pozner <OzP@bynet.co.il>
+Date:   Mon Jun 24 08:27:44 2024 +0300
+
+    initial
+
+[33mcommit df75e912dbaaa5b9b98878a53ed320a6a7e54bce[m
+Author: Bynet Data comm <OzPozner-bynet@users.noreply.github.com>
+Date:   Mon Jun 24 07:32:48 2024 +0300
+
+    Initial commit
