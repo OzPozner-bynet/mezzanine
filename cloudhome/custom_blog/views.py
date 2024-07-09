@@ -7,7 +7,7 @@ from custom_blog.models import CustomBlogPost
 logger = logging.getLogger()
 
 
-def blog_post_list(
+def custom_blog_post_list(
     request,
     tag=None,
     year=None,
@@ -24,7 +24,7 @@ def blog_post_list(
     category slug or author's username if given.
     """
     templates = []
-    blog_posts = BlogPost.objects.published(for_user=request.user)
+    blog_posts = CustomBlogPost.objects.published(for_user=request.user)
     if tag is not None:
         tag = get_object_or_404(Keyword, slug=tag)
         blog_posts = blog_posts.filter(keywords__keyword=tag)
