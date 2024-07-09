@@ -4,6 +4,8 @@ from .models import BlogPost, CustomBlogPost
 from django.template.response import TemplateResponse
 import logging
 from custom_blog.models import CustomBlogPost
+from django.core.paginator import paginate
+
 logger = logging.getLogger()
 
 
