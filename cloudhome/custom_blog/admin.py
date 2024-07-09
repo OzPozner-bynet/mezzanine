@@ -22,3 +22,4 @@ class CustomBlogPostAdmin(BlogPostAdmin):
 
 admin.site.register(CustomBlogPost, CustomBlogPostAdmin)
 
+ 
