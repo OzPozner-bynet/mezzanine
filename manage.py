@@ -1,4 +1,7 @@
 #!/usr/bin/env python
+"""Module providing a function managing django."""
+
+
 import os
 import sys
 

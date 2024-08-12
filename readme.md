@@ -8,7 +8,8 @@ pip install django-ckeditor
 pip install --upgrade cuser
 pip install --upgrade modeltranslation
 
-
+#student app
+pip install openpyxl 
 
 fixes
 
