@@ -1,0 +1,12 @@
+*.pyc
+*.pyo
+*.db
+.DS_Store
+.coverage
+.exe
+.dll
+*.log
+/static
+/media
+/.venv
+/.vscode
