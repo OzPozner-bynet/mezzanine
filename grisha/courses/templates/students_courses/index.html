@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Students and Courses</title>
+</head>
+<body>
+    <h1>Students</h1>
+    <ul>
+        {% for student in students %}
+            <li>{{ student.name }} ({{ student.email }})</li>
+        {% endfor %}
+    </ul>
+
+    <h1>Courses</h1>
+    <ul>
+        {% for course in courses %}
+            <li>{{ course.name }}</li>
+        {% endfor %}
+    </ul>
+
+    <a href="{% url 'add_student' %}">Add Student</a>
+    <a href="{% url 'add_course' %}">Add Course</a>
+    <a href="{% url 'import_excel' %}">Import Excel</a>
+    <a href="{% url 'export_excel' %}">Export Excel</a>
+</body>
+</html>

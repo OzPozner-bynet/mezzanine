@@ -1,5 +1,6 @@
+#python
 import os
-
+from django.utils import translation 
 from django.utils.translation import gettext_lazy as _
 
 ######################
@@ -238,7 +239,7 @@ TEMPLATES = [
 ################
 
 INSTALLED_APPS = [
-    
+   
     "django.contrib.sites",
     "theme",
     "custom_blog",
@@ -263,6 +264,7 @@ INSTALLED_APPS = [
     'mezzanine.accounts',
  #  'modeltranslation',
     "django.contrib.admin",
+    'student_course_mapping',
    
     
 ]
@@ -405,8 +407,11 @@ TRANSLATABLE_MODEL_MODULES = []
 MODELTRANSLATION_DEFAULT_LANGUAGE = 'he'
 MODELTRANSLATION_FALLBACK_LANGUAGES = ('en', 'he')
 MODELTRANSLATION_DEBUG = False
-# fix in env / activat
+# fix in env / activate
+
 def is_bidi_language(request):
+    if request:
+        print(f"is bidi: {str(request)}")
     language_code = translation.get_language() 
     # Replace with your logic to identify right-to-left languages
     # (e.g., check language code against a list or use a library)
