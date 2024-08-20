@@ -1,7 +1,9 @@
 #python
 import os
-from django.utils import translation 
+import secrets
+from django.utils import translation
 from django.utils.translation import gettext_lazy as _
+
 
 ######################
 # MEZZANINE SETTINGS #
@@ -239,16 +241,13 @@ TEMPLATES = [
 ################
 
 INSTALLED_APPS = [
-   
     "django.contrib.sites",
     "theme",
-    "custom_blog",
-    
+    "custom_blog",   
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.redirects",
-    "django.contrib.sessions",
-    
+    "django.contrib.sessions",    
     "django.contrib.sitemaps",
     "django.contrib.messages",
     "django.contrib.staticfiles",
@@ -264,9 +263,7 @@ INSTALLED_APPS = [
     'mezzanine.accounts',
  #  'modeltranslation',
     "django.contrib.admin",
-    'student_course_mapping',
-   
-    
+    'student_course_mapping',  
 ]
 
 # List of middleware classes to use. Order is important; in the request phase,
@@ -337,7 +334,9 @@ if os.path.exists(f):
 ####################
 
 CSRF_TRUSTED_ORIGINS = ['http://ec2-18-200-245-127.eu-west-1.compute.amazonaws.com:8080',
-                        'http://ec2-18-200-245-127.eu-west-1.compute.amazonaws.com',"0.0.0.0","127.0.01"]
+                        'http://ec2-18-200-245-127.eu-west-1.compute.amazonaws.com',
+                        "0.0.0.0",
+                        "127.0.01"]
 # set_dynamic_settings() will rewrite globals based on what has been defined so far, in
 # order to provide some better defaults where applicable.
 try:
@@ -346,7 +345,7 @@ except ImportError:
     pass
 else:
     set_dynamic_settings(globals())
-import secrets
+
 SECRET_KEY = secrets.token_urlsafe(50)
 
 ####################
@@ -412,7 +411,7 @@ MODELTRANSLATION_DEBUG = False
 def is_bidi_language(request):
     if request:
         print(f"is bidi: {str(request)}")
-    language_code = translation.get_language() 
+    language_code = translation.get_language()
     # Replace with your logic to identify right-to-left languages
     # (e.g., check language code against a list or use a library)
     return {'is_bidi': language_code in ['en', 'he']}  # Placeholder for languages
