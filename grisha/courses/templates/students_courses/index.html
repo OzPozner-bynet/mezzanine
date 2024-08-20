@@ -4,13 +4,14 @@
     <title>Students and Courses</title>
 </head>
 <body>
+    {% comment %}	
     <h1>Students</h1>
     <ul>
         {% for student in students %}
             <li>{{ student.name }} ({{ student.email }})</li>
         {% endfor %}
     </ul>
-
+    {% endcomment %}
     <h1>Courses</h1>
     <ul>
         {% for course in courses %}
