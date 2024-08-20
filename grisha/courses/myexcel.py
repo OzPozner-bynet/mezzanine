@@ -106,7 +106,7 @@ def apply_conditional_formatting(worksheet):
     for col in range(1, worksheet.max_column + 1):
         cell = worksheet.cell(row=row, column=col)
         cell.font = Font(name='Arial')
-        #cell.aligment = Alignment(horizontal='center')
+        cell.alignment = Alignment(horizontal='center')
         cell.fill = gray_fill
         cell.border = border
         cell.font = font_size
@@ -115,7 +115,7 @@ def apply_conditional_formatting(worksheet):
         col = 1
         cell = worksheet.cell(row=row, column=col)
         cell.font = Font(name='Arial')
-        cell.aligment = Alignment(horizontal='center')
+        cell.alignment = Alignment(horizontal='center')
         cell.fill = cyan_fill
         cell.border = border
         cell.font = font_size
@@ -123,7 +123,7 @@ def apply_conditional_formatting(worksheet):
             cell = worksheet.cell(row=row, column=col)
             cell.border = border
             cell.font = font_size
-            cell.aligment = Alignment(horizontal='center')
+            cell.alignment = Alignment(horizontal='center')
             if cell.value == 'completed' or cell.value == '1':
                 cell.fill = green_fill
                 cell.font = Font(name='Arial')

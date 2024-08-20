@@ -22,5 +22,5 @@ from courses import views
 urlpatterns = [
     path('admin/', admin.site.urls, name='admin'),
     path('', views.index, name='index'),
-    path('/export_excel', views.export_excel, name='export_excel'),
+    path('export_excel', views.export_excel, name='export_excel'),
 ]
