@@ -8,7 +8,7 @@ is_git_clean() {
 # Function to add all files and commit with timestamp
 commit_and_push() {
      timestamp=$(date +"%Y-%m-%d-%H-%M-%S")
-     git add .-A
+     git add . -A
      git commit -m "Automatic commit: $timestamp"
      git push 
 }
