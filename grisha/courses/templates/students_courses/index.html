@@ -17,10 +17,13 @@
             <li>{{ course.name }}</li>
         {% endfor %}
     </ul>
-
-    <a href="{% url 'add_student' %}">Add Student</a>
-    <a href="{% url 'add_course' %}">Add Course</a>
-    <a href="{% url 'import_excel' %}">Import Excel</a>
+    {# This is a Jinja comment #}
+    {% comment %}
+    <a href="{% url 'add_student' %}">Add Student</a> 
+    <a href="{% url 'add_course' %}">Add Course</a> 
+    <a href="{% url 'import_excel' %}">Import Excel</a> 
+    {% endcomment %}
     <a href="{% url 'export_excel' %}">Export Excel</a>
+    <a href="/admin">Admin LMS</a>
 </body>
 </html>

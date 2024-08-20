@@ -9,11 +9,17 @@ https://docs.djangoproject.com/en/5.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
-
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+
+CKEDITOR_UPLOAD_PATH = 'uploads/ckeditor/'
 
 
 # Quick-start development settings - unsuitable for production
@@ -37,7 +43,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'courses'
+    'courses',
+     'ckeditor',
+    'ckeditor_uploader',
 ]
 
 MIDDLEWARE = [
@@ -55,7 +63,7 @@ ROOT_URLCONF = 'grisha.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -70,11 +78,11 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'grisha.wsgi.application'
 
-#oz 
+#oz
 JQUERY_UI_FILENAME = 'jquery-ui.min.js'  # Replace with the correct filename
 PACKAGE_NAME_FILEBROWSER = 'filebrowser'  # Replace 'filebrowser' with the correct package name
-RICHTEXT_WIDGET_CLASS = 'django_summernote.widgets.SummernoteWidget'  # Replace with the correct widget class
-
+#RICHTEXT_WIDGET_CLASS = 'django_summernote.widgets.SummernoteWidget'  # Replace with the correct widget class
+RICHTEXT_WIDGET_CLASS = 'ckeditor.widgets.CKEditorWidget'
 
 
 # Database
