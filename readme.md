@@ -1,6 +1,6 @@
 Install venv
 activate venv
-
+ 
 
 pip install mezzanine
 pip install django-modeltranslation

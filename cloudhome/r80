@@ -1,3 +1,4 @@
 #!/bin/bash
 source /home/ozpoz/sites/env/bin/activate
+cd /home/ozpoz/sites/mezzanine/cloudhome/
 python manage.py runserver 0.0.0.0:80
