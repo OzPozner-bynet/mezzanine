@@ -213,7 +213,8 @@ ROOT_URLCONF = "%s.urls" % PROJECT_APP
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [os.path.join(PROJECT_ROOT, "templates")],
+        "DIRS": [os.path.join(PROJECT_ROOT, "templates"),
+                 os.path.join(PROJECT_ROOT, "solutions","templates") ],
         "OPTIONS": {
             "context_processors": [
                 "django.contrib.auth.context_processors.auth",
@@ -263,8 +264,24 @@ INSTALLED_APPS = [
     'mezzanine.accounts',
  #  'modeltranslation',
     "django.contrib.admin",
-    'student_course_mapping',  
+    "solutions",
+    "tinymce",
 ]
+
+TINYMCE_JS_URL = "https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js"
+TINYMCE_COMPRESSOR = False
+
+TINYMCE_DEFAULT_CONFIG = {
+  "theme": "silver",
+  "resize": "false",
+  "menubar": "file edit view insert format tools table help",
+  "toolbar":
+    "undo redo | bold italic underline strikethrough | fontselect fontsizeselect formatselect | alignleft aligncenter alignright alignjustify | outdent indent |  numlist bullist checklist | forecolor backcolor casechange permanentpen formatpainter removeformat | pagebreak | charmap emoticons | fullscreen  preview save print | insertfile image media pageembed template link anchor codesample | a11ycheck ltr rtl | showcomments addcomment code typography",
+  "plugins":
+    "advlist autolink lists link image charmap print preview anchor searchreplace visualblocks code fullscreen insertdatetime media table powerpaste advcode help wordcount spellchecker typography",
+  "selector": "textarea",
+  "API_KEY": "7qmqracpw2ihtpvb79md8e84jdad0jla9g9iku8b4ojtja28",
+}
 
 # List of middleware classes to use. Order is important; in the request phase,
 # these middleware classes will be applied in the order given, and in the

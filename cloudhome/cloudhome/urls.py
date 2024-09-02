@@ -9,6 +9,7 @@ from django.views.i18n import set_language
 
 from mezzanine.pages.views import page
 from custom_blog.views import custom_blog_post_detail, custom_blog_post_list
+from solutions.views import solution_detail
 from mezzanine.blog.views import blog_post_detail 
 # Uncomment to use blog as home page. See also urlpatterns section below.
 # from mezzanine.blog import views as blog_views
@@ -89,6 +90,11 @@ urlpatterns += [
     # ``mezzanine.urls``, go right ahead and take the parts you want
     # from it, and use them directly below instead of using
     # ``mezzanine.urls``.
+    path('tinymce/',include('tinymce.urls')),
+    path('he/solutions/<slug:slug>/', solution_detail, name='solution_detail'),
+    path('he/solutions/he/solutions/<slug:slug>/', solution_detail, name='solution_detail'),
+    path('solutions/', include('solutions.urls')),
+    path('he/solutions/', include('solutions.urls')),
     path("", include("mezzanine.urls")),
     # MOUNTING MEZZANINE UNDER A PREFIX
     # ---------------------------------

@@ -1,0 +1,16 @@
+<html>
+<head>
+    <title>Cloud Home</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+<h1>Solutions</h1>
+<ul>
+    {% for solution in solutions %}
+        <li>
+            <a href="/solutions/{{ solution.id }}">{{ solution.title }}</a>
+        </li>
+    {% endfor %}
+
+</body>
+</html>

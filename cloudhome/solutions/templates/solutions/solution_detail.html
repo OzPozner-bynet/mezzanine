@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% load i18n mezzanine_tags %}
+
+{% block meta_title %}{% trans "Solution Detail" %}{% endblock %}
+{% block title %}{% trans "Solution Detail" %}{% endblock %}
+{% block extra_head %}
+<meta name="robots" content="noindex">
+{% endblock %}
+
+{% block breadcrumb_menu %}
+<li>
+    <a href="{% url "home" %}">{% trans "Home" %}</a>
+</li>
+<li class="active">{% trans "Details" %}</li>
+{% endblock %}
+
+{% block main %}
+
+
+    <h1><b><u>{{ solution.title|safe}}</u></b></h1>
+    {{ solution.description|safe }}
+    <h2><b><u>יתרונות המוצר</u></b></h2> 
+        {{ solution.usp|safe }}
+    <h2><b><u>למי פונים</u></b></h2>
+    {{ solution.target_personas|safe }}
+{# comment #}
+    <!-- <h2>Vendors</h2> -->
+    <!-- <ul> -->
+        {% for vendor in solution.vendors.all %}
+        <!-- <li>{{ vendor.title }}</li> -->
+        {% endfor %}
+    <!-- </ul> -->
+    <!-- <h2>Products</h2> -->
+    <!-- <ul> -->
+    {% for product in solution.products.all %}
+        <!-- <li>{{ product.title }}</li> -->
+    {% endfor %}
+    <!-- </ul> -->
+{# end comment #}
+{% endblock %}
+
+

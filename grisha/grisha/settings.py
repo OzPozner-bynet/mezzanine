@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'courses',
-     'ckeditor',
+    'ckeditor',
     'ckeditor_uploader',
 ]
 
@@ -81,7 +81,8 @@ WSGI_APPLICATION = 'grisha.wsgi.application'
 #oz
 JQUERY_UI_FILENAME = 'jquery-ui.min.js'  # Replace with the correct filename
 PACKAGE_NAME_FILEBROWSER = 'filebrowser'  # Replace 'filebrowser' with the correct package name
-#RICHTEXT_WIDGET_CLASS = 'django_summernote.widgets.SummernoteWidget'  # Replace with the correct widget class
+#RICHTEXT_WIDGET_CLASS = 'django_summernote.widgets.SummernoteWidget'  
+# Replace with the correct widget class
 RICHTEXT_WIDGET_CLASS = 'ckeditor.widgets.CKEditorWidget'
 
 
