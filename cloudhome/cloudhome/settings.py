@@ -252,6 +252,7 @@ INSTALLED_APPS = [
     "django.contrib.sitemaps",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+#    "django.contrib.sites.models.Site",
     "mezzanine.boot",
     "mezzanine.conf",
     "mezzanine.core",

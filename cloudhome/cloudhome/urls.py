@@ -92,9 +92,12 @@ urlpatterns += [
     # ``mezzanine.urls``.
     path('tinymce/',include('tinymce.urls')),
     path('he/solutions/<slug:slug>/', solution_detail, name='solution_detail'),
+    path('en/solutions/<slug:slug>/', solution_detail, name='solution_detail'),
     path('he/solutions/he/solutions/<slug:slug>/', solution_detail, name='solution_detail'),
+    path('en/solutions/en/solutions/<slug:slug>/', solution_detail, name='solution_detail'),
     path('solutions/', include('solutions.urls')),
     path('he/solutions/', include('solutions.urls')),
+    path('en/solutions/', include('solutions.urls')),
     path("", include("mezzanine.urls")),
     # MOUNTING MEZZANINE UNDER A PREFIX
     # ---------------------------------
